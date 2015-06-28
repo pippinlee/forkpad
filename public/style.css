@@ -50,3 +50,9 @@ div#editor {
 #toolbar input {
   width: 200px;
 }
+
+#url {
+  width: 600px;
+  height: 30px;
+  font-size: 16px;
+}
