@@ -19,7 +19,7 @@ header {
   margin: 0;
 }
 
-h1 {
+h1  {
   margin: 0 auto;
   padding: 0;
   text-align: center;
@@ -29,6 +29,12 @@ h1 {
   color: rgb(75, 199, 199);
   font-size: 2.2em;
 }
+
+a {
+  text-decoration: none;
+  color: rgb(75, 199, 199);
+}
+
 h2{
     margin: 0 auto;
   padding: 0;
@@ -50,6 +56,7 @@ h2{
   margin-bottom: 0px;
   padding: 10px;
   background-color: #EFEAEA;
+  text-align: center;
   /*margin-top: 1em;*/
 }
 
@@ -74,7 +81,16 @@ div#editor {
 }
 
 #url {
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
   width: 95%;
   height: 30px;
   font-size: 16px;
+  max-width: 500px;
+}
+
+.content {
+  margin: 0 auto;
+  padding: 0;
 }
