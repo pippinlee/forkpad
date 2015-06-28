@@ -2,9 +2,6 @@ var express = require('express'),
   app = express(),
   path = require('path'),
   request = require('request'),
-  //bodyParser = require('body-parser'),
-  //errorHandler = require('errorhandler'),
-  //methodOverride = require('method-override'),
   hostname = process.env.HOSTNAME || 'localhost',
   port = parseInt(process.env.PORT, 10) || 4567,
   publicDir = process.argv[2] || __dirname + '/public',
@@ -42,13 +39,19 @@ app.get('/api/pad/:id', function(req, res) {
 });
 
 app.get('/', function(req, res) {
-  res.send('homepage');
+    fs.readFile("public/index.html", function (err, data){
+    if (err) {
+      throw err;
+    }
+    res.set('Content-Type', 'text/html');
+    res.send(data);
+  });
 })
 
 app.get('/:id', function(req, res){
 
-  //res.redirect("/public/index.html");
-  fs.readFile("public/index.html", function (err, data){
+  //res.redirect("/public/editor.html");
+  fs.readFile("public/editor.html", function (err, data){
     if (err) {
       throw err;
     }
