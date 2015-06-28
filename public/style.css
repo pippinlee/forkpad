@@ -1,0 +1,44 @@
+* {
+  margin: 0 auto;
+  padding: 0;
+}
+
+header {
+  height: 100px;
+  background-color: #EFEAEA;
+  padding: 0;
+  padding-top: 20px;
+}
+
+h1 {
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  font-family: sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 900;
+  color: rgb(75, 199, 199);
+  font-size: 42px;
+}
+
+.content {
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  width: 800px;
+  height: 500px;
+  padding: 10px;
+  background-color: #EFEAEA;
+  margin-top: 100px;
+}
+
+div#editor {
+  border: 1px solid #999;
+  background-color: white;
+  height: 470px;
+  text-align: left;
+}
+
+#toolbar button {
+  border-radius: 0;
+}
