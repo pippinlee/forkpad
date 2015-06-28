@@ -42,3 +42,11 @@ div#editor {
 #toolbar button {
   border-radius: 0;
 }
+
+#toolbar .shareurl {
+  background-color: red;
+}
+
+#toolbar input {
+  width: 200px;
+}

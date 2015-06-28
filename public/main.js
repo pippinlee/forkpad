@@ -61,9 +61,16 @@ if ( window.location.pathname.search("/share/") === -1 ) {
 
 $(function(){
   $('.submit').click(function(){
+    //console.log('works');
     var text = encodeURIComponent(quill.getHTML());
+    $.ajax('/api/insert/'+(text))
+    .then(function(response){
+      $('.shareurl').val(response);
+      console.log(response);
+      console.log('works');
+    });
 
-    return $.ajax('/api/insert/'+(text));
 
+    //return $.ajax('/api/insert/'+(text));
   });
 });

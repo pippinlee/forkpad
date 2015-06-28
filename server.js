@@ -53,8 +53,13 @@ app.get('/api/insert/:text', function(req, res) {
     var collection = db.collection("stories");
     // Insert a single document
     // console.log(text.toString());
-    collection.insert({text:text.toString()});
-    res.end();
+    collection.insert({text:text.toString()}, function(err, docsInserted){
+      // get last id
+      res.send(docsInserted.ops[0]._id);
+      console.log(docsInserted.ops[0]._id);
+      res.end();
+    });
+
   });
 });
 
@@ -75,8 +80,8 @@ console.log(id);
       throw err;
     }
       console.log("called back");
-      console.log(doc.text);
-      res.send(doc.text);
+      console.log(doc.ops);
+      res.send(doc.ops);
       res.end();
     });
   });
