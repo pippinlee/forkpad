@@ -1,13 +1,22 @@
 * {
   margin: 0 auto;
   padding: 0;
-}
 
+}
+body{
+  background-color: #EFEAEA;
+
+}
+p 
+{
+  font-size:  1.1em;
+}
 header {
-  height: 100px;
+  height: 4em;
   background-color: #EFEAEA;
   padding: 0;
-  padding-top: 20px;
+  padding-top: 1em;
+  margin: 0;
 }
 
 h1 {
@@ -18,29 +27,42 @@ h1 {
   font-family: 'Open Sans', sans-serif;
   font-weight: 900;
   color: rgb(75, 199, 199);
-  font-size: 42px;
+  font-size: 2.2em;
+}
+h2{
+    margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  font-family: sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  color: rgb(122, 122, 122);
+  font-size: 1.4em;
+}
 }
 
 .content {
   margin: 0 auto;
   padding: 0;
   text-align: center;
-  width: 800px;
+  width: 95%;
   height: 500px;
+  margin-bottom: 0px;
   padding: 10px;
   background-color: #EFEAEA;
-  margin-top: 100px;
+  /*margin-top: 1em;*/
 }
 
 div#editor {
   border: 1px solid #999;
   background-color: white;
-  height: 470px;
+  max-height: 100%;
   text-align: left;
 }
 
 #toolbar button {
   border-radius: 0;
+  /*display: block;*/
 }
 
 #toolbar .shareurl {
@@ -52,7 +74,7 @@ div#editor {
 }
 
 #url {
-  width: 600px;
+  width: 95%;
   height: 30px;
   font-size: 16px;
 }
