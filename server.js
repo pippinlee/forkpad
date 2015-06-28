@@ -50,8 +50,9 @@ app.get('/api/insert/:text', function(req, res) {
   db.open(function(err, db) {
     var collection = db.collection("stories");
     // Insert a single document
-    collection.insert({text:text});
-
+    // console.log(text.toString());
+    collection.insert({text:text.toString()});
+    res.end();
   });
 });
 
@@ -79,8 +80,6 @@ app.get('/:id', function(req, res){
 });
 
 app.use('/static/', express.static(path.join(__dirname, 'public')));
-
-
 
 
 

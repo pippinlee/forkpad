@@ -1,7 +1,7 @@
 <!-- Initialize Quill editor -->
-
+var quill;
 function initQuill() {
-  var quill = new Quill('#editor');
+   quill = new Quill('#editor');
   quill.addModule('toolbar', { container: '#toolbar' });
 
   quill.on('text-change', function(delta, source) {
@@ -42,9 +42,9 @@ if ( window.location.pathname.search("/share/") === -1 ) {
 
 $(function(){
   $('.submit').click(function(){
-    var text = $('.ql-editor div');
-    console.log( text );
-    return $.ajax('/api/insert/'+text);
+    var text = encodeURIComponent(quill.getHTML());
+
+    return $.ajax('/api/insert/'+(text));
 
   });
 });
