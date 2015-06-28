@@ -66,9 +66,8 @@ $(function(){
     var text = encodeURIComponent(quill.getHTML());
     $.ajax('/api/insert/'+(text))
     .then(function(response){
-      $('.shareurl').val(response);
-      console.log(response);
-      console.log('works');
+      $('.shareurl').val(window.location.origin+'/share/'+response);
+   
     });
 
 

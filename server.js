@@ -56,7 +56,7 @@ app.get('/api/insert/:text', function(req, res) {
     collection.insert({text:text.toString()}, function(err, docsInserted){
       // get last id
       res.send(docsInserted.ops[0]._id);
-      console.log(docsInserted.ops[0]._id);
+      // console.log(docsInserted.ops[0]._id);
       res.end();
     });
 
@@ -66,7 +66,7 @@ app.get('/api/insert/:text', function(req, res) {
 
 app.get('/api/retrieve/:id', function(req, res) {
   var id = req.params.id;
-console.log(id);
+// console.log(id);
 
     // var collection = db.collection("stories");
 
@@ -78,8 +78,8 @@ console.log(id);
        if (err) {
       throw err;
         } 
-      console.log("called back");
-      console.log(doc.text);
+      // console.log("called back");
+      // console.log(doc.text);
       res.send(doc.text);
       res.end();
     });
