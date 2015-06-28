@@ -1,7 +1,10 @@
 <!-- Initialize Quill editor -->
 var quill;
 function initQuill() {
-   quill = new Quill('#editor');
+    // = new Quill('#editor');
+ quill = new Quill('#editor', {
+  theme: 'snow'
+});
   quill.addModule('toolbar', { container: '#toolbar' });
 
   quill.on('text-change', function(delta, source) {
@@ -38,8 +41,8 @@ function DBrequest() {
   .then(function(data) {
     // Update editor's content
     $("#editor").html(data);
-    console.log('data');
-    console.log(data);
+    // console.log('data');
+    // console.log(data);
     // Start quill
     initQuill();
   })

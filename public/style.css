@@ -84,9 +84,20 @@ div#editor {
   
 }
 
-#toolbar button {
-  border-radius: 0;
-  /*display: block;*/
+
+ button {
+  -webkit-border-radius: 3;
+  -moz-border-radius: 3;
+  border-radius: 3px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: .9em;
+  background: rgb(75, 199, 199);
+  text-decoration: none;
+  border: 0px;
+  outline: 1px;
+  margin: 0 5px;
+  padding: 3px;
 }
 
 #toolbar .shareurl {
