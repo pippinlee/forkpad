@@ -5,7 +5,12 @@ var express = require('express'),
   hostname = process.env.HOSTNAME || 'localhost',
   port = parseInt(process.env.PORT, 10) || 4567,
   publicDir = process.argv[2] || __dirname + '/public',
-  fs = require('fs');
+  fs = require('fs'),
+  mongoose = require('mongoose'),
+  Db = require('mongodb').Db,
+  Server = require('mongodb').Server;
+
+var db = new Db('forkpad', new Server('localhost', 27017));
 
 function getWattpad(id, cb) {
   var options = {
@@ -38,6 +43,18 @@ app.get('/api/pad/:id', function(req, res) {
   });
 });
 
+app.get('/api/insert/:text', function(req, res) {
+  var text = req.params.text;
+
+  // Fetch a collection to insert document into
+  db.open(function(err, db) {
+    var collection = db.collection("stories");
+    // Insert a single document
+    collection.insert({text:text});
+
+  });
+});
+
 app.get('/', function(req, res) {
     fs.readFile("public/index.html", function (err, data){
     if (err) {
@@ -64,12 +81,15 @@ app.get('/:id', function(req, res){
 app.use('/static/', express.static(path.join(__dirname, 'public')));
 
 
+
+
+
 var server = app.listen(3000, function () {
 
   var host = server.address().address;
   var port = server.address().port;
 
-  console.log('forkPad listening at http://%s:%s', host, port);
+  console.log('forkpad listening at http://%s:%s', host, port);
 
 });
 

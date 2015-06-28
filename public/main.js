@@ -32,4 +32,19 @@ function loadPad() {
 
 }
 
-loadPad();
+//loadPad();
+
+if ( window.location.pathname.search("/share/") === -1 ) {
+  loadPad();
+} else {
+  DBrequest();
+}
+
+$(function(){
+  $('.submit').click(function(){
+    var text = $('.ql-editor div');
+    console.log( text );
+    return $.ajax('/api/insert/'+text);
+
+  });
+});
