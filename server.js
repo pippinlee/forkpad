@@ -75,13 +75,12 @@ console.log(id);
     // Insert a single document
     // console.log(text.toString());
    collection.findOne({"_id": new ObjectId(id)}, function(err, doc) {
-    // collection.findOne({"_id": new ObjectId(id)}, function(err, doc) {
        if (err) {
       throw err;
-    }
+        } 
       console.log("called back");
-      console.log(doc.ops);
-      res.send(doc.ops);
+      console.log(doc.text);
+      res.send(doc.text);
       res.end();
     });
   });

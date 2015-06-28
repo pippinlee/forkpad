@@ -38,7 +38,8 @@ function DBrequest() {
   .then(function(data) {
     // Update editor's content
     $("#editor").html(data);
-
+    console.log('data');
+    console.log(data);
     // Start quill
     initQuill();
   })
