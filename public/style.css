@@ -45,13 +45,22 @@ h2{
   color: rgb(122, 122, 122);
   font-size: 1.4em;
 }
+
+#Content {
+   
+    width: 55%;
+   
+    margin: auto;
+   
 }
+
+
 
 .content {
   margin: 0 auto;
   padding: 0;
   text-align: center;
-  width: 95%;
+  width: 500px;
   height: 500px;
   margin-bottom: 0px;
   padding: 10px;
@@ -65,6 +74,14 @@ div#editor {
   background-color: white;
   max-height: 100%;
   text-align: left;
+}
+
+@media only screen and (max-width: 40em) {
+
+  .Content {
+    width: 95%;
+  }
+  
 }
 
 #toolbar button {
