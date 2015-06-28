@@ -4,6 +4,7 @@
    <title>forkpad</title>
   <meta name=viewport content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="/static/style.css">
+  <link rel="stylesheet" href="//cdn.quilljs.com/0.19.14/quill.snow.css" />
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800' rel='stylesheet' type='text/css'>
 </head>
 <body>
@@ -13,23 +14,25 @@
 
   <div class="content">
 
-<h2>Input wattpad url:</h2><br>
-<input type="text" id='url' name="input" value="https://www.wattpad.com/103247365-sarah-spellings-%26-the-followers-of-the-grove-a">
-<input type="button" value="Go" onclick="submit();">
+    <h2>Input wattpad url:</h2><br>
+    <input type="text" id='url' name="input" value="https://www.wattpad.com/103247365-sarah-spellings-%26-the-followers-of-the-grove-a">
 
-</form>
-
+    <input class="searchurl" type="button" value="" onclick="submit();">
 
   </div>
 
   <script type="text/javascript">
-var submit = function(){
-    var url = document.getElementById('url').value;;
-    var idIndex = url.search('[0-9]{8}');
-
- window.location.href = "/"+url.substring(idIndex,idIndex+8); //assuming part id is always 8!
-}
-  </script>
+  var submit = function(){
+     var url = document.getElementById('url').value;
+     var idIndex = url.search('[0-9]{6}[0-9]*');
+     if(url.indexOf('-')===-1)
+       var partid = url.substring(idIndex);
+     else
+       var partid = url.substring(idIndex,url.indexOf('-'))
+     console.log(partid);
+  window.location.href = "/"+partid;//url.substring(idIndex,idIndex+8); //assuming part id is always 8!
+  }
+   </script>
 
 </body>
 </html>

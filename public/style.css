@@ -64,7 +64,7 @@ div#editor {
   border: 1px solid #999;
   background-color: white;
   max-height: 100%;
-  text-align: left;
+  text-align: center;
 }
 
 #toolbar button {
@@ -93,4 +93,19 @@ div#editor {
 .content {
   margin: 0 auto;
   padding: 0;
+  text-align: center;
+}
+
+.searchurl {
+  width: 150px;
+  height: 150px;
+  display: block;
+  margin-top: 40px;
+  background-color: rgb(68, 215, 204);;
+  font-size: 22px;
+  background-image: url("fork.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 100px;
+  border: none;
 }
