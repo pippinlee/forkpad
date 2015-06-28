@@ -8,7 +8,9 @@ var express = require('express'),
   fs = require('fs'),
   mongoose = require('mongoose'),
   Db = require('mongodb').Db,
-  Server = require('mongodb').Server;
+  Server = require('mongodb').Server,
+  ObjectId = require('mongodb').ObjectID;
+
 
 var db = new Db('forkpad', new Server('localhost', 27017));
 
@@ -56,6 +58,34 @@ app.get('/api/insert/:text', function(req, res) {
   });
 });
 
+
+app.get('/api/retrieve/:id', function(req, res) {
+  var id = req.params.id;
+console.log(id);
+
+    // var collection = db.collection("stories");
+
+  db.open(function(err, db) {
+    var collection = db.collection("stories");
+    // Insert a single document
+    // console.log(text.toString());
+   collection.findOne({"_id": new ObjectId(id)}, function(err, doc) {
+    // collection.findOne({"_id": new ObjectId(id)}, function(err, doc) {
+       if (err) {
+      throw err;
+    }
+      console.log("called back");
+      console.log(doc.text);
+      res.send(doc.text);
+      res.end();
+    });
+  });
+
+    
+
+});
+
+
 app.get('/', function(req, res) {
     fs.readFile("public/index.html", function (err, data){
     if (err) {
@@ -67,6 +97,19 @@ app.get('/', function(req, res) {
 })
 
 app.get('/:id', function(req, res){
+
+  //res.redirect("/public/editor.html");
+  fs.readFile("public/editor.html", function (err, data){
+    if (err) {
+      throw err;
+    }
+    res.set('Content-Type', 'text/html');
+    res.send(data);
+  });
+
+});
+
+app.get('/share/:id', function(req, res){
 
   //res.redirect("/public/editor.html");
   fs.readFile("public/editor.html", function (err, data){

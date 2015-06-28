@@ -31,8 +31,27 @@ function loadPad() {
   });
 
 }
+function DBrequest() {
+  console.log(window.location.pathname.slice(7));
 
-//loadPad();
+  retrievePad(window.location.pathname.slice(7))
+  .then(function(data) {
+    // Update editor's content
+    $("#editor").html(data);
+
+    // Start quill
+    initQuill();
+  })
+  .fail(function(err) {
+    // Display error message
+  });
+
+}
+
+function retrievePad(id) {
+  return $.ajax('/api/retrieve/'+id)
+}
+
 
 if ( window.location.pathname.search("/share/") === -1 ) {
   loadPad();
