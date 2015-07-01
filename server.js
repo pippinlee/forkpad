@@ -9,18 +9,27 @@ var express = require('express'),
   mongoose = require('mongoose'),
   Db = require('mongodb').Db,
   Server = require('mongodb').Server,
-  ObjectId = require('mongodb').ObjectID;
+  ObjectId = require('mongodb').ObjectID,
+  config = require('./config');
 
 
 var db = new Db('forkpad', new Server('localhost', 27017));
+
+// checks if config.json file exists and has been decrypted
+// run `make decrypt_conf` if no config.json exists
+if (!fs.existsSync("config.json")) {
+  console.error("Config file [conf/settings.json] missing!");
+  console.error("Did you forget to run `make decrypt_conf`?");
+  process.exit(1);
+}
 
 function getWattpad(id, cb) {
   var options = {
     method: 'GET',
     url: 'https://www.wattpad.com:443/v4/parts/'+id+'/text',
     headers: {
-      'authorization': 'REDACTED',
-      'api-key': 'REDACTED'
+      'authorization': config.wattpad.authorization,
+      'api-key': config.wattpad["api-key"]
   }};
 
   request(options, function (error, response, body) {

@@ -77,11 +77,3 @@ $(function(){
     //return $.ajax('/api/insert/'+(text));
   });
 });
-
-// checks if config.json file exists and has been decrypted
-// run `make decrypt_conf` if no config.json exists
-if (!fs.existsSync("config.json")) {
-  console.error("Config file [conf/settings.json] missing!");
-  console.error("Did you forget to run `make decrypt_conf`?");
-  process.exit(1);
-}
