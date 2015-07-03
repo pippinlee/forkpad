@@ -3,7 +3,7 @@ var express = require('express'),
   path = require('path'),
   request = require('request'),
   hostname = process.env.HOSTNAME || 'localhost',
-  port = parseInt(process.env.PORT, 10) || 4567,
+  port = process.env.PORT || 4567,
   publicDir = process.argv[2] || __dirname + '/public',
   fs = require('fs'),
   mongoose = require('mongoose'),
@@ -139,7 +139,7 @@ app.use('/static/', express.static(path.join(__dirname, 'public')));
 
 
 
-var server = app.listen(3000, function () {
+var server = app.listen(80, function () {
 
   var host = server.address().address;
   var port = server.address().port;
