@@ -13,6 +13,11 @@ var express = require('express'),
   config = require('./config');
 
 
+
+
+var createServer = function(port) {
+
+
 var db = new Db('forkpad', new Server('localhost', 27017));
 
 // checks if config.json file exists and has been decrypted
@@ -139,7 +144,7 @@ app.use('/static/', express.static(path.join(__dirname, 'public')));
 
 
 
-var server = app.listen(80, function () {
+var server = app.listen(port, function () {
 
   var host = server.address().address;
   var port = server.address().port;
@@ -147,4 +152,6 @@ var server = app.listen(80, function () {
   console.log('forkpad listening at http://%s:%s', host, port);
 
 });
-
+};
+// createServer(port);
+module.exports = createServer;

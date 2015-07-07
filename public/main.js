@@ -31,6 +31,7 @@ function loadPad() {
   })
   .fail(function(err) {
     // Display error message
+    console.error(err);
   });
 
 }
@@ -70,10 +71,28 @@ $(function(){
     $.ajax('/api/insert/'+(text))
     .then(function(response){
       $('.shareurl').val(window.location.origin+'/share/'+response);
-   
+      // SelectText('shareurl');
     });
 
 
     //return $.ajax('/api/insert/'+(text));
   });
 });
+
+// function SelectText(element) {
+//     var doc = document
+//         , text = doc.getElementById(element)
+//         , range, selection
+//     ;    
+//     if (doc.body.createTextRange) {
+//         range = document.body.createTextRange();
+//         range.moveToElementText(text);
+//         range.select();
+//     } else if (window.getSelection) {
+//         selection = window.getSelection();        
+//         range = document.createRange();
+//         range.selectNodeContents(text);
+//         selection.removeAllRanges();
+//         selection.addRange(range);
+//     }
+// }
