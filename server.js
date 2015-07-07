@@ -70,6 +70,7 @@ var createServer = function(port) {
             collection.insert({
                 text: text.toString()
             }, function(err, docsInserted) {
+                db.close();
                 // get last id
                 res.send(docsInserted.ops[0]._id);
             });
@@ -86,10 +87,12 @@ var createServer = function(port) {
             collection.findOne({
                 "_id": new ObjectId(id)
             }, function(err, doc) {
+                 db.close();
                 if (err) {
                     throw err;
                 }
                 res.send(doc.text);
+                
             });
         });
 
