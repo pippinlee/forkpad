@@ -10,8 +10,7 @@ var express = require('express'),
     Db = require('mongodb').Db,
     Server = require('mongodb').Server,
     ObjectId = require('mongodb').ObjectID,
-    config = require('./config'),
-    collection = db.collection("stories");
+    config = require('./config');
 
 
 
@@ -20,6 +19,7 @@ var createServer = function(port) {
 
 
     var db = new Db('forkpad', new Server('localhost', 27017));
+    var collection = db.collection("stories");
 
     // checks if config.json file exists and has been decrypted
     // run `make decrypt_conf` if no config.json exists
