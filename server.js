@@ -10,6 +10,7 @@ var express = require('express'),
     Db = require('mongodb').Db,
     Server = require('mongodb').Server,
     ObjectId = require('mongodb').ObjectID,
+    favicon = require('serve-favicon'),
     config = require('./config');
 
 
@@ -47,6 +48,8 @@ var createServer = function(port) {
             cb(error);
         });
     }
+
+    app.use(favicon(__dirname + '/public/favicon.ico'));
 
     app.get('/api/pad/:id', function(req, res) {
         var id = req.params.id;
