@@ -3,7 +3,7 @@ var express = require('express'),
   path = require('path'),
   request = require('request'),
   hostname = process.env.HOSTNAME || 'localhost',
-  port = process.env.PORT || 4567,
+  // port = process.env.PORT || 4567,
   publicDir = process.argv[2] || __dirname + '/public',
   fs = require('fs'),
   mongoose = require('mongoose'),
@@ -153,5 +153,4 @@ var server = app.listen(port, function () {
 
 });
 };
-// createServer(port);
 module.exports = createServer;
